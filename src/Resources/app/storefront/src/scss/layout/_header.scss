@@ -1,0 +1,18 @@
+/*
+Header
+==================================================
+Contains custom styles for the header at the top of the page.
+The header contains the shop logo, the search form and various actions like the offcanvas cart button.
+*/
+
+.collapse:not(.show) {
+    display: block;
+}
+
+.navigation-flyouts {
+    display: none;
+}
+
+.header-main {
+    background: red;
+}
