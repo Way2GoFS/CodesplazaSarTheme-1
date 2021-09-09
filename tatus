@@ -1,0 +1,32 @@
+[33mcommit 455308d2fcd416706b812ffbde60920d09ad81df[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/Shabaz[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Shahbaz Hossain <shabaz.com@gmail.com>
+Date:   Thu Sep 9 19:15:23 2021 +0600
+
+    Javascript issue fixed
+
+[33mcommit 46b3a1c36d34dc791f182c4b9412e7a02e782204[m
+Merge: 7f96946 f5867b0
+Author: S M Shahbaz Hossain Shohag <shabaz.com@gmail.com>
+Date:   Thu Sep 9 16:14:43 2021 +0600
+
+    Merge pull request #1 from codes-plaza/Shabaz
+    
+    footer class add
+
+[33mcommit f5867b0ec521b54090328115ed21cd46db3a13e0[m
+Author: Shahbaz Hossain <shabaz.com@gmail.com>
+Date:   Thu Sep 9 16:07:18 2021 +0600
+
+    footer class add
+
+[33mcommit 7f96946552d24274fc7fab01ff7e13f62725256d[m
+Author: Shahbaz Hossain <shabaz.com@gmail.com>
+Date:   Thu Sep 9 15:56:53 2021 +0600
+
+    update changes
+
+[33mcommit 31f1a853076cf790bbd76563a5eae7746db9d3bf[m
+Author: Mohammad Aktaruzzaman Aktar <aktaruzzamancse@gmail.com>
+Date:   Sun Aug 22 19:43:46 2021 +0600
+
+    Base theme created

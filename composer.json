@@ -12,9 +12,10 @@
         }
     ],
     "require": {
-        "shopware/core": "~6.4.4",
+        "shopware/core": "~6.4.*",
         "shopware/storefront": "*"
     },
+    "minimum-stability": "RC",
     "license": "proprietary",
     "autoload": {
         "psr-4": {
