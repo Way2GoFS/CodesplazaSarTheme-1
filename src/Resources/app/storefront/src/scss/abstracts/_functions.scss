@@ -1,0 +1,17 @@
+//_CP_ -----------------------------------------------------------------------------
+//_CP_ This file contains all application-wide Sass functions.
+//_CP_ -----------------------------------------------------------------------------
+
+//_CP_ Convert pixel to rem
+
+//_CP_ Base Font Size according to template
+$base-font-size: 16 !default;
+
+@function rem($px,$base:$base-font-size) {
+  @return ($px / $base) * 1rem;
+}
+
+//_CP_ Function for calculating padding bottom value for non square images
+@function nonsquare($imageWidth,$imageHeight) {
+  @return ($imageHeight / $imageWidth) * 100%;
+}

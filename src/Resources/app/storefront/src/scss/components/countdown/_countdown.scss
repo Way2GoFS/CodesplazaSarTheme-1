@@ -1,0 +1,111 @@
+//_CP_ -----------------------------------------------------------------------------
+//_CP_ This file contains all styles related to the countdown component.
+//_CP_ -----------------------------------------------------------------------------
+
+/* Countdown Component */
+
+
+
+//_CP_ Used on 2 products that are on the Deal of the page
+.countdown--style-special {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .countdown__content {
+    margin: 0 6px 10px;
+    text-align: center;
+    //_CP_ by default all children would be inline because of flex
+    //_CP_display: inline-block;
+    padding: 5px 24px;
+    //_CP_background: transparent linear-gradient(146deg, $g-brand-color 0%, lighten($g-brand-color,10%) 100%);
+    //_CP_box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+   background-color: rgba(255,255,255,0.98);
+
+    //_CP_ > div { }
+  }
+
+  .countdown__value {
+    font-size: 35px;
+    font-weight: 600;
+    display: block;
+    color: $g-brand-secondary-color;
+  }
+
+  .countdown__key {
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    color: $g-brand-color;
+  }
+}
+//_CP_ Used on Banner-bg
+.countdown--style-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .countdown__content {
+    //_CP_ by default all children would be inline because of flex
+    //_CP_display: inline-block;
+    margin: 0 10px 10px;
+    text-align: center;
+    padding: 5px 24px;
+    //_CP_ box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+    background-color: $g-brand-secondary-color;
+    //_CP_ > div { }
+  }
+
+  .countdown__value {
+    font-size: 48px;
+    font-weight: 600;
+    display: block;
+    color: $g-white;
+  }
+
+  .countdown__key {
+    font-size: 12px;
+    font-weight: 600;
+    display: block;
+    color: $g-white;
+  }
+}
+
+
+//_CP_ Used on index-2 'countdown style section'
+.countdown--style-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  .countdown__content {
+    margin: 18px 20px 20px 0;
+    padding: 8px 22px;
+    //_CP_ by default all children would be inline because of flex
+    //_CP_display: inline-block;
+    //_CP_ padding: 2px 6px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06);
+    background-color: rgba(255,255,255,.98);
+    //_CP_  background: transparent linear-gradient(146deg, $g-brand-color 0%, lighten($g-brand-color,10%) 100%);
+
+
+
+  }
+
+  .countdown__value {
+    font-size: 26px;
+    font-weight: 600;
+    display: block;
+    color: $g-brand-secondary-color;
+  }
+
+  .countdown__key {
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+    color: $g-brand-color;
+  }
+}
+
+
+
+
+

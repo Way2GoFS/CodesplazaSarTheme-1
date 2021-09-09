@@ -1,0 +1,51 @@
+
+/* START Animated Border Gradient Effect
+@import "compass/css3"; */
+
+.seperator-wrapper {
+  width: 100%;
+}
+.seperator-wrapper .seperator {
+  width: 100%;
+  height: 8px;
+  animation: rotate 3s infinite linear;
+  -webkit-animation: rotate 3s infinite linear;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    background-position: -3000px;
+  }
+  to {
+    background-position: 0px;
+  }
+}
+@keyframes rotate {
+  from {
+    background-position: -3000px;
+  }
+  to {
+    background-position: 0px;
+  }
+}
+.gradient {
+  background: #399953;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #399953 0%, #fbb300 25%, #d53e33 50%, #377af5 75%, #399953 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #399953), color-stop(25%, #fbb300), color-stop(50%, #d53e33), color-stop(75%, #377af5), color-stop(100%, #399953));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #399953 0%, #fbb300 25%, #d53e33 50%, #377af5 75%, #399953 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #399953 0%, #fbb300 25%, #d53e33 50%, #377af5 75%, #399953 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #399953 0%, #fbb300 25%, #d53e33 50%, #377af5 75%, #399953 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #399953 0%, #fbb300 25%, #d53e33 50%, #377af5 75%, #399953 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#399953', endColorstr='#399953',GradientType=1 );
+  /* IE6-9 */
+}
+
+/* END Animated Border Gradient Effect */
+

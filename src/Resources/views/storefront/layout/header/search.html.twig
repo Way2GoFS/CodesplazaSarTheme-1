@@ -1,0 +1,26 @@
+{% block layout_header_search %}
+            <form action="{{ path('frontend.search.page') }}"
+                  method="get"
+                  data-search-form="true"
+                  data-url="{{ path('frontend.search.suggest') }}?search="
+                  class="main-form">
+
+                            <input type="search"
+                                   name="search"
+                                   class="input-text input-text--border-radius input-text--style-1"
+                                   autocomplete="off"
+                                   autocapitalize="off"
+                                   placeholder="{{ "header.searchPlaceholder"|trans|striptags }}"
+                                   aria-label="{{ "header.searchPlaceholder"|trans|striptags }}"
+                                   value="{{ page.searchTerm }}"
+                                   id="main-search"
+                            >
+
+                                <button type="submit"
+                                        class="btn btn--icon fas fa-search main-search-button"
+                                        aria-label="{{ "header.searchButton"|trans|striptags }}">
+                                </button>
+
+            </form>
+
+{% endblock %}

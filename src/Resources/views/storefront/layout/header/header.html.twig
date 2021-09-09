@@ -1,120 +1,142 @@
 {% block layout_header %}
-    {% block layout_top_bar %}
-        {% sw_include '@Storefront/storefront/layout/header/top-bar.html.twig' %}
-    {% endblock %}
-
+    <div class="container">
     {% block layout_header_navigation %}
-        <div class="row align-items-center header-row">
+        <div class="primary-nav">
             {% block layout_header_logo %}
-                <div class="col-12 col-lg-auto header-logo-col">
                     {% sw_include '@Storefront/storefront/layout/header/logo.html.twig' %}
-                </div>
             {% endblock %}
-            {% block layout_main_navigation %}
 
-            <div class="main-navigation"
-                    id="mainNavigation"
-                    data-flyout-menu="true">
-                    {% block layout_main_navigation_navbar %}
-                        <div class="container">
-                            {% block layout_main_navigation_menu %}
-                                <nav class="nav main-navigation-menu"
-                                    itemscope="itemscope"
-                                    itemtype="http://schema.org/SiteNavigationElement">
-                                    {% set homeLabel = context.salesChannel.translated.homeName|default("general.homeLink"|trans) %}
-
-                                    {% block layout_main_navigation_menu_home %}
-                                        {% if context.salesChannel.translated.homeEnabled %}
-                                            <a class="nav-link main-navigation-link{% if controllerAction is same as('home') %} active{% endif %} home-link"
-                                                href="{{ path('frontend.home.page') }}"
-                                                itemprop="url"
-                                                title="{{ homeLabel|striptags }}">
-                                                <div class="main-navigation-link-text">
-                                                    <span itemprop="name">{{ homeLabel|sw_sanitize }}</span>
-                                                </div>
-                                            </a>
-                                        {% endif %}
-                                    {% endblock %}
-
-                                    {% block layout_main_navigation_menu_items %}
-                                        {% if page.product is defined %}
-                                            {% set activePath = page.product.categoryTree %}
-                                        {% else %}
-                                            {% set activePath = page.header.navigation.active.path %}
-                                        {% endif %}
-
-                                        {% for treeItem in page.header.navigation.tree %}
-                                            {% set category = treeItem.category %}
-                                            {% set name = category.translated.name %}
-
-                                            {# @deprecated tag:v6.5.0 - Use "category.id" directly instead. #}
-                                            {% set categorId = category.id %}
-
-                                            {% block layout_main_navigation_menu_item %}
-                                                {% if category.type == 'folder' %}
-                                                    <div class="nav-link main-navigation-link"
-                                                        {% if treeItem.children|length > 0 %}
-                                                            data-flyout-menu-trigger="{{ category.id }}"
-                                                        {% endif %}
-                                                        title="{{ name }}">
-                                                        <div class="main-navigation-link-text">
-                                                            <span itemprop="name">{{ name }}</span>
-                                                        </div>
-                                                    </div>
-                                                {% else %}
-                                                    <a class="nav-link main-navigation-link{% if category.id == page.header.navigation.active.id or category.id in activePath %} active{% endif %}"
-                                                    href="{{ category_url(category) }}"
-                                                    itemprop="url"
-                                                    {% if treeItem.children|length > 0 %}data-flyout-menu-trigger="{{ category.id }}"{% endif %}
-                                                    {% if category_linknewtab(category) %}target="_blank"{% endif %}
-                                                    title="{{ name }}">
-                                                        <div class="main-navigation-link-text">
-                                                            <span itemprop="name">{{ name }}</span>
-                                                        </div>
-                                                    </a>
-                                                {% endif %}
-                                            {% endblock %}
-                                        {% endfor %}
-                                    {% endblock %}
-                                </nav>
-                            {% endblock %}
-                        </div>
-                    {% endblock %}
-
-                    {% block layout_main_navigation_menu_flyout_wrapper %}
-                        {% set navigationChildrenCount = 0 %}
-                        {% for treeItem in page.header.navigation.tree %}
-                            {% if treeItem.category.childCount > 0 %}
-                                {% set navigationChildrenCount = navigationChildrenCount + 1 %}
-                            {% endif %}
-                        {% endfor %}
-
-                        {% if navigationChildrenCount > 0 %}
-                            {% block layout_main_navigation_menu_flyout_container %}
-                                <div class="navigation-flyouts">
-                                    {% block layout_main_navigation_menu_flyouts %}
-                                        {% for treeItem in page.header.navigation.tree %}
-                                            {% if treeItem.children|length > 0 %}
-                                                {% block layout_main_navigation_menu_flyout %}
-                                                    <div class="navigation-flyout"
-                                                        data-flyout-menu-id="{{ treeItem.category.id }}">
-                                                        <div class="container">
-                                                            {% block layout_main_navigation_menu_flyout_include %}
-                                                                {% sw_include '@Storefront/storefront/layout/navigation/flyout.html.twig' with {navigationTree: treeItem, level: level+1, page: page} only %}
-                                                            {% endblock %}
-                                                        </div>
-                                                    </div>
-                                                {% endblock %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endblock %}
-                                </div>
-                            {% endblock %}
-                        {% endif %}
-                    {% endblock %}
-                </div>
+            {% block layout_header_search %}
+                    {% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
             {% endblock %}
+
             {% block layout_header_actions %}
+
+
+
+
+                        <div class="menu-init" id="navigation">
+
+                            <button class="btn btn--icon toggle-button toggle-button--secondary fas fa-cogs" type="button"></button>
+
+                            <!--====== Menu ======-->
+                            <div class="ah-lg-mode">
+
+                                <span class="ah-close">✕ Close</span>
+
+                                <!--====== List ======-->
+                                <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="" data-original-title="Account">
+
+                                        <a><i class="far fa-user-circle"></i></a>
+
+                                        <!--====== Dropdown ======-->
+
+                                        <span class="js-menu-toggle"></span>
+                                        <ul style="width:120px">
+                                            <li>
+
+                                                <a href="dashboard.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
+
+                                                    <span>Account</span></a></li>
+                                            <li>
+
+                                                <a href="signup.html"><i class="fas fa-user-plus u-s-m-r-6"></i>
+
+                                                    <span>Signup</span></a></li>
+                                            <li>
+
+                                                <a href="signin.html"><i class="fas fa-lock u-s-m-r-6"></i>
+
+                                                    <span>Signin</span></a></li>
+                                            <li>
+
+                                                <a href="signup.html"><i class="fas fa-lock-open u-s-m-r-6"></i>
+
+                                                    <span>Signout</span></a></li>
+                                        </ul>
+                                        <!--====== End - Dropdown ======-->
+                                    </li>
+                                    <li class="has-dropdown" data-tooltip="tooltip" data-placement="left" title="" data-original-title="Settings">
+
+                                        <a><i class="fas fa-user-cog"></i></a>
+
+                                        <!--====== Dropdown ======-->
+
+                                        <span class="js-menu-toggle"></span>
+                                        <ul style="width:120px">
+                                            <li class="has-dropdown has-dropdown--ul-right-100">
+
+                                                <a>Language<i class="fas fa-angle-down u-s-m-l-6"></i></a>
+
+                                                <!--====== Dropdown ======-->
+
+                                                <span class="js-menu-toggle"></span>
+                                                <ul style="width:120px">
+                                                    <li>
+
+                                                        <a class="u-c-brand">ENGLISH</a></li>
+                                                    <li>
+
+                                                        <a>ARABIC</a></li>
+                                                    <li>
+
+                                                        <a>FRANCAIS</a></li>
+                                                    <li>
+
+                                                        <a>ESPANOL</a></li>
+                                                </ul>
+                                                <!--====== End - Dropdown ======-->
+                                            </li>
+                                            <li class="has-dropdown has-dropdown--ul-right-100">
+
+                                                <a>Currency<i class="fas fa-angle-down u-s-m-l-6"></i></a>
+
+                                                <!--====== Dropdown ======-->
+
+                                                <span class="js-menu-toggle"></span>
+                                                <ul style="width:225px">
+                                                    <li>
+
+                                                        <a class="u-c-brand">$ - US DOLLAR</a></li>
+                                                    <li>
+
+                                                        <a>£ - BRITISH POUND STERLING</a></li>
+                                                    <li>
+
+                                                        <a>€ - EURO</a></li>
+                                                </ul>
+                                                <!--====== End - Dropdown ======-->
+                                            </li>
+                                        </ul>
+                                        <!--====== End - Dropdown ======-->
+                                    </li>
+                                    <li data-tooltip="tooltip" data-placement="left" title="" data-original-title="Contact">
+
+                                        <a href="tel:+0900901904"><i class="fas fa-phone-volume"></i></a></li>
+                                    <li data-tooltip="tooltip" data-placement="left" title="" data-original-title="Mail">
+
+                                        <a href="mailto:contact@domain.com"><i class="far fa-envelope"></i></a></li>
+                                </ul>
+                                <!--====== End - List ======-->
+                            </div>
+                            <!--====== End - Menu ======-->
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            {#
+
+            
                 <div class="col-12 order-1 col-sm-auto order-sm-2 header-actions-col">
                     <div class="row no-gutters">
                         {% block layout_header_navigation_toggle %}
@@ -140,9 +162,9 @@
                                     <button class="btn header-actions-btn search-toggle-btn js-search-toggle-btn collapsed"
                                             type="button"
                                             data-toggle="collapse"
-                                            data-target="#searchCollapse"
+                                            data-target="#main-search"
                                             aria-expanded="false"
-                                            aria-controls="searchCollapse"
+                                            aria-controls="main-search"
                                             aria-label="{{ "header.searchButton"|trans|striptags }}">
                                         {% sw_icon 'search' %}
                                     </button>
@@ -189,32 +211,10 @@
                         {% endblock %}
                     </div>
                 </div>
-            {% endblock %}
-            {% block layout_header_search %}
-                <div class="col-12 order-2 col-sm order-sm-1 ">
-                    <div class="row">
-                        <div class="col-sm-auto d-none d-sm-block d-lg-none">
-                            {% block layout_header_navigation_toggle_tablet %}
-                                <div class="nav-main-toggle">
-                                    {% block layout_header_navigation_toggle_tablet_button %}
-                                        <button class="btn nav-main-toggle-btn header-actions-btn"
-                                                type="button"
-                                                data-offcanvas-menu="true"
-                                                aria-label="{{ "general.menuLink"|trans|striptags }}">
-                                            {% block layout_header_navigation_toggle_tablet_button_icon %}
-                                                {% sw_icon 'stack' %}
-                                            {% endblock %}
-                                        </button>
-                                    {% endblock %}
-                                </div>
-                            {% endblock %}
-                        </div>
-                        <div class="col">
-                            {% sw_include '@Storefront/storefront/layout/header/search.html.twig' %}
-                        </div>
-                    </div>
-                </div>
+                
+                #}
             {% endblock %}
         </div>
     {% endblock %}
+    </div>
 {% endblock %}

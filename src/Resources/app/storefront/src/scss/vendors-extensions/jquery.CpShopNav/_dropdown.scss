@@ -1,0 +1,374 @@
+//_CP_ Recursive
+.ah-list {
+  margin: 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+  //_CP_ Recursive
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+
+
+//_CP_ Design Default Template 1  .ah-list--design1 > li > a
+  .ah-list--design1 {
+    > li {
+      display: inline-block;
+      > a {
+        display: inline-block;
+        font-size: 16px;//_CP_ icon
+        padding: 28px 18px; //_CP_ padding top bottom height 80/2 =40 / 2 = 20 so + 4 = 24
+}
+}
+  }
+
+
+  //_CP_ For Index 1
+.ah-list--link-color-secondary {
+  > li {
+    > a {
+      color:$g-brand-secondary-color;
+    }
+  }
+}
+
+
+//_CP_ For Index 2 / Index 3, but on tablet devices it would become secondary color
+.ah-list--link-color-white {
+  > li {
+    > a {
+      color: $g-white;
+    }
+  }
+}
+
+
+
+
+//_CP_ Custom Design Default Template 2  .ah-list--design1 > li > a
+.ah-list--design2 {
+  > li {
+    display: inline-block;
+    > a {
+      font-weight: 700;
+      font-size: 12px;
+      display: inline-block;
+      padding: 31px 14px;
+    }
+  }
+}
+
+//_CP_ Level 1 , 2 and so on recursive
+.has-dropdown > ul .has-dropdown {
+  position: relative;
+}
+
+
+//_CP_ Level 0
+.has-dropdown > ul {
+    background-color: $g-white;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.13);
+    position: absolute;
+    text-align: left;
+    padding: 20px 0 20px; //_CP_ only top bottom
+    z-index: 999;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+     top:120%; //_CP_ increment increase distance from item (means bottom)
+    opacity: 0;
+    visibility: hidden;
+    > li {
+      > a {
+        display: block;
+        padding: 8px 20px;
+        color: $g-brand-secondary-color;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+
+
+//_CP_ This class should apply on list item with class has-dropdown
+//_CP_ Modifier 1: For Left Side
+.has-dropdown--ul-left-100 > ul {
+   left: 100%;
+ }
+
+//_CP_ Modifier 2: For Right Side
+.has-dropdown--ul-right-100 > ul {
+  right: 100%;
+}
+
+//_CP_ Global Styles end
+
+
+//_CP_ Less than
+@media (max-width: $g-mobileBreakpoint * 1px) {
+
+	//_CP_ Recursive style
+  .menu-init {
+    //_CP_ Remove all angle downs on mobile menu
+    .fa-angle-down {
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+
+  .menu-init.js-open {
+    .ah-lg-mode {
+      left:0;
+      transition: all .4s ease-in-out;
+    }
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      background-color: rgba(0,0,0,.7);
+      z-index: 19999;
+    }
+  }
+
+
+
+  .ah-lg-mode {
+    position: fixed; //_CP_ Relative to the .container
+    left: -315px;//_CP_ iphone 5 has total width 320px
+    width: 315px;
+    height: 100%;
+    top: 0;
+    background-color: $g-white;
+    z-index: 20000;
+    overflow-y: auto;
+  }
+
+
+  .ah-close {
+    color: $g-brand-secondary-color;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+  }
+
+  //_CP_ For Dropdown
+  .ah-list {
+    > li {
+      position: relative;
+      display: block;
+     //_CP_ padding:0;
+      border-top: 1px solid $g-border-color;
+      > a {
+        display: block;
+        padding:8px 18px;
+      }
+    }
+    > li:last-child {
+      border-bottom: 1px solid $g-border-color;
+    }
+
+
+
+
+    //_CP_ Default
+    &--design1,&--design2 {
+      > li {
+        > a {
+          font-weight: normal;
+          font-size: 14px;
+        }
+      }
+    }
+
+  }
+
+
+
+  .ah-list--link-color-white {
+    > li {
+      > a {
+        color: $g-brand-secondary-color;
+      }
+    }
+  }
+
+
+
+
+  .js-menu-toggle {
+    width: 21px;
+    display: block;
+    height: 21px;
+    border-radius: 50%;
+    background-color: $g-white;
+    box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.13);
+    position: absolute;//_CP_ position relative to list item
+    right: 15px;
+    top:6px;//_CP_ same as top-bottom padding of link
+    transition: all .3s;
+    cursor: pointer;
+    &:after {
+      font-family: 'Font Awesome 5 Free';
+      content: "\F067";
+      position: absolute;//_CP_ position relative to span
+      top: 50%;
+      width: 100%;
+      font-weight: 900;
+      color: $g-brand-secondary-color;
+      display: block;
+      transform: translateY(-50%);
+      text-align: center;
+      font-size: 8px;
+    }
+
+    &.js-toggle-mark {
+      &:after {
+        content: "\F068";
+      }
+    }
+
+  }
+
+
+  //_CP_ Dropdown style Level 0
+  .has-dropdown > ul {
+    width: 100% !important;
+    box-shadow: none;
+    transition: none;
+    position: static;
+    padding: 0 0 10px;
+    opacity: 1;
+    visibility: visible;
+    //_CP_ through jquery
+    display: none;//_CP_ This property is very important helps to remove transition flash of dropdown when window
+    //_CP_ is resize
+
+    > li {
+      padding: 0;
+      > a {
+        display: block;
+      }
+    }
+  }
+
+
+
+
+
+
+
+  //_CP_ Hard coded settings for level0 mobile language , currency
+  //_CP_ Level 0
+  .ah-list > li > ul > li > a {
+    padding: 8px 36px;//_CP_ 18*2 = 36px
+  }
+
+  .ah-list > li > ul > li > ul > li > a {
+    padding: 8px 54px;//_CP_18 * 3 = 54
+  }
+
+  //_CP_ Level 2
+  .ah-list > li > ul > li > ul > li > ul > li > a {
+    padding: 8px 72px;//_CP_18 * 4 = 72
+  }
+
+
+
+
+}
+
+
+
+
+//_CP_ Greater than
+@media (min-width: ($g-mobileBreakpoint + 1) * 1px) {
+
+  .toggle-button {
+    display: none;
+  }
+
+  .ah-close {
+    display: none;
+  }
+
+  //_CP_ Hover effect for level 0 list
+  .ah-list {
+    > li {
+      > a:hover {
+        color: $g-brand-color;
+      }
+    }
+  }
+
+  //_CP_ Hover only works on desktop mode
+  //_CP_ Level 0
+  .has-dropdown > ul {
+    > li:hover {
+      background-color: #fbfbfb;
+    }
+  }
+
+
+  .has-dropdown:hover > ul {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  //_CP_ Level 0
+  .ah-list > .has-dropdown:hover > ul {
+    top: 100%; //_CP_ increment increase distance from item (means bottom)
+  }
+
+  //_CP_ after Level 0, apply on all nested dropdowns
+  .has-dropdown .has-dropdown:hover > ul {
+    top: 0;
+  }
+
+
+
+
+
+
+  //_CP_ Apply only to first list items which has drop down
+  .ah-list {
+    //_CP_ li
+    > .has-dropdown:hover > a {
+      color: $g-brand-color;
+    }
+  }
+
+  //_CP_ Icon settings
+    .has-dropdown {
+      > a {
+        //_CP_ It is place inside anchor element. By default computed line-height of anchor is 18px
+        .fa-angle-down {
+          //_CP_ So anchor has line-height 18px for vertical center we also need to set the icon line-height 18px
+          font-size: 10px;
+          line-height: 18px;
+          float: right;
+        }
+      }
+
+      &:hover {
+        > a {
+          //_CP_ Right
+          .i-state-right:before {
+            content: "\F105";
+          }
+        }
+    }
+
+    }
+
+}

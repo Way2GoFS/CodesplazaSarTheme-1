@@ -1,0 +1,642 @@
+//_CP_ -----------------------------------------------------------------------------
+//_CP_ This file contains styles that are specific to the product detail page.
+//_CP_ -----------------------------------------------------------------------------
+/*--------------------------------------------------------------
+#{$r}
+--------------------------------------------------------------*/
+
+//_CP_ Breadcrumb
+.pd-breadcrumb__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  word-wrap: break-word;
+  > li {
+    display: inline-block;
+    > a {
+      color: #a0a0a0;
+      font-size: 12px;
+      transition: color 0.5s;
+      &:hover {
+        color: $g-brand-secondary-color;
+      }
+    }
+
+
+    &.is-marked {
+      > a {
+        color: $g-brand-secondary-color;
+        font-weight: 700;
+      }
+    }
+
+    &.has-separator {
+      &:after {
+        content: '-';
+        margin: 0 6px;
+      }
+    }
+  }
+}
+
+
+
+//_CP_ Product Detail Simple
+
+.pd {
+  cursor: pointer;
+}
+
+.pd-wrap {
+  position: relative;
+}
+
+.pd-text {
+  position: absolute;
+  top:15px;
+  padding: 8px;
+  right: 15px;
+  font-size: 12px;
+  color: $g-brand-secondary-color;
+}
+
+
+ //_CP_ Product-Detail Social List
+.pd-social-list {
+  margin:0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  > li {
+    margin-right: 16px;
+    &:last-child {
+      margin-right: 0;
+    }
+    > a {
+      font-size: rem(18);
+      transition: color 110ms ease-in-out;
+      color: $g-brand-secondary-color;
+    }
+  }
+}
+
+
+//_CP_ Product Right Slide
+
+
+.pd-detail__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: $g-brand-secondary-color;
+}
+
+//_CP_ Span inline
+.pd-detail__inline {
+  span {
+    margin-right: rem(6);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//_CP_ div inline
+.pd-detail-inline-2 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  div {
+    margin-right: 14px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+
+//_CP_ Product Name
+.pd-detail__name {
+  display: block;
+  color: $g-brand-secondary-color;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+
+//_CP_ Product Price, Discount, Del
+.pd-detail__price {
+  color: $g-brand-color;
+  font-size: rem(32);
+  font-weight: 700;
+}
+
+.pd-detail__discount {
+  color: $g-brand-color;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.5s;
+}
+
+.pd-detail__del {
+  color: #a0a0a0;
+  font-size: 12px;
+}
+
+
+
+.pd-detail__rating {
+  display: block;
+   i {
+    font-size: 12px;
+  }
+}
+
+.pd-detail__review {
+  > a {
+    font-size: 12px;
+    transition: color 110ms ease-in-out;
+    color: $g-brand-secondary-color;
+    &:hover {
+      color: $g-brand-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+.pd-detail__stock,.pd-detail__left {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px;
+  display: inline-block;
+  border-radius: 30px;
+}
+
+.pd-detail__stock {
+  background-color: rgba(#009444,.14);
+  color: #009444;
+}
+.pd-detail__left {
+  background-color: rgba(#ff4500,.14);
+  color: #ff4500;
+}
+
+//_CP_ Total 245 characters
+.pd-detail__preview-desc {
+  font-size: 13px;
+  color: $g-text-color;
+}
+
+
+.pd-detail__click-wrap {
+  > a {
+    font-size: 13px;
+    color: #a0a0a0;
+    transition: color 110ms ease-in-out;
+    &:hover {
+      color: #b6b6b6;
+      text-decoration: underline;
+    }
+  }
+}
+
+.pd-detail__click-count {
+  font-size: 10px;
+  color: #a0a0a0;
+}
+
+//_CP_ by default input-counter has fixed width and height
+.pd-detail__form {
+  width: 100%;
+  .btn {
+    padding: rem(16) rem(48);
+    border-radius: rem(6);
+  }
+}
+
+
+/**
+  * Variations
+ */
+//_CP_ Color
+.pd-detail__color,.pd-detail__size {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//_CP_ div
+.color__radio {
+  position: relative;
+  line-height: 1.89;
+  margin-right: 36px;//_CP_ Same as before and after width
+  display: inline-block;//_CP_ Very Very Important property
+}
+
+.color__radio {
+  [type="radio"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 30px;//_CP_ Width of the default hidden radio
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+
+//_CP_ label
+.color__radio-label {
+  position: initial;//_CP_ Which is by default static
+  display: inline-block;//_CP_ Very Very Important property
+}
+
+
+.color__radio-label:before,.color__radio-label:after {
+  content: '';
+  width: 30px;
+  height: 30px;
+  display: block;
+  border: 2px solid transparent;
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.color__radio-label:after {
+  transform: scale(0.6);
+  background-color: inherit;//_CP_ Important property
+}
+
+
+.color__radio input:checked + label:before {
+  border-color: #d2d2d2;
+}
+//_CP_ Color End
+
+
+//_CP_ Size
+//_CP_ div
+.size__radio {
+  position: relative;
+  margin: 0 12px 12px 0;
+}
+
+
+
+.size__radio {
+  [type="radio"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+.size__radio-label {
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 7px 15px;
+  background-color: $g-white;
+  font-size: 13px;
+  color: $g-brand-secondary-color;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.size__radio input:checked + label {
+  border-color: $g-brand-secondary-color;
+}
+
+
+//_CP_ ul policy
+.pd-detail__policy-list {
+  margin: 0;
+  padding-left: 26px;
+  font-size: 14px;
+  list-style: none;
+  > li {
+    i {
+      color:#009444;
+    }
+     span {
+       color: $g-text-color;
+     }
+  }
+}
+
+
+//_CP_ Tab
+.pd-tab__list {
+  margin: 0;
+  border-bottom: 2px solid #e7e7e7;
+  > li {
+    margin-bottom: -2px;//_CP_ For border
+    > a {
+      padding: 10px 0;
+      color: $g-brand-secondary-color;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 2px solid transparent;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      letter-spacing: .01rem;
+      transition: all .3s;
+      span {
+        margin-left: 2px;
+        font-size: 12px;
+      }
+
+      &.active {
+        color: $g-black;
+        border-color: $g-black;
+      }
+    }
+    + li {
+      margin-left: 28px;
+    }
+  }
+}
+.pd-tab__desc,.pd-tab__tag {
+  max-width: 691px;
+}
+
+.pd-tab__desc {
+
+  p {
+    color: $g-brand-secondary-color;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 16px;
+    list-style: none;
+    > li {
+      margin-bottom: 7px;
+      color: $g-brand-secondary-color;
+      font-size: 14px;
+    }
+  }
+
+  h4 {
+    color: $g-brand-secondary-color;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .pd-table {
+    overflow: auto;
+    table {
+      width: 100%;
+      border-radius: 2px;
+      border: 1px solid #eee;
+      border-collapse: collapse;
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+      }
+      td {
+        font-size: 14px;
+        color: $g-text-color;
+        padding: 12px;
+    }
+
+      td:first-child {
+        color: $g-brand-secondary-color;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+
+
+.pd-tab__tag {
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: $g-brand-secondary-color;
+    line-height: 1.18;
+  }
+
+  form {
+    width: 100%;
+    .btn {
+      font-size: 13px;
+      font-weight: 600;
+      border: 0;
+      height: 48px;
+      padding: 17px 18px;
+    }
+    .input-text {
+      height: 48px;
+      margin-right: 8px;
+      width: 50%;
+    }
+  }
+
+
+
+}
+
+//_CP_ Form
+.pd-tab__rev-f1 {
+  width: 100%;
+}
+
+
+//_CP_ Score Mark
+.pd-tab__rev-score {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #f6f6f6;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 0.875;
+    color: $g-brand-secondary-color;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 0.875;
+    color: $g-brand-secondary-color;
+  }
+}
+
+//_CP_ Group
+.rev-f1__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: $g-brand-secondary-color;
+    line-height: 1.18;
+  }
+
+  .select-box {
+    border-radius: rem(6);
+  }
+}
+
+//_CP_ Review Wrap
+.rev-f1__review {
+  max-width: 691px;
+}
+
+.review-o {
+  padding: rem(16) 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.review-o__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: $g-brand-secondary-color;
+}
+.review-o__date {
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $g-text-color;
+}
+
+.review-o__rating {
+  span {
+    margin-left: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    color: $g-text-color;
+  }
+}
+
+.review-o__text {
+  font-size: 13px;
+  color: $g-text-color;
+}
+
+
+//_CP_ Form-2
+.pd-tab__rev-f2 {
+  width: 100%;
+
+  h2 {
+    font-size: 32px;
+    color: $g-brand-secondary-color;
+    line-height: 0.90;
+  }
+
+  .input-text,.text-area {
+    width: 100%;
+  }
+
+  .text-area {
+    height: rem(250);
+  }
+
+  .btn {
+    font-weight: 600;
+    padding: 16px 46px;
+  }
+}
+
+.rev-f2__table-wrap {
+  overflow: auto;
+}
+
+
+.rev-f2__table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6;
+
+  th,td {
+    padding: 16px 4px;
+    border: 1px solid #d6d6d6;
+  }
+    th {
+      width: 120px;
+      color: $g-brand-secondary-color;
+      background-color: #f0f0f0;
+      font-size: 13px;
+      span {
+        margin-top: 2px;
+        display: block;
+        font-size: 11px;
+        color: $g-brand-secondary-color;
+      }
+    }
+}
+
+
+.rev-f2__group {
+    display: flex;
+    flex-wrap: nowrap;
+    div {
+      flex:1;
+      margin-right: 14px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+}
+
+
+
+
+
+@media (max-width:991px) {
+  .pd-text {
+    display: none;
+  }
+  .zoomContainer {
+        display: none;
+      }
+
+  .rev-f2__group {
+    display: block;
+    div {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+}
+@media (max-width:575px) {
+  .pd-detail-inline-2 {
+    display: block;
+    div {
+      display: block;
+      margin-right: 0;
+    }
+  }
+
+  .rev-f1__group {
+    display: block;
+  }
+
+  }
+

@@ -1,18 +1,44 @@
 {
-  "name": "swag/theme-skeleton",
-  "description": "Theme skeleton plugin",
-  "type": "shopware-platform-plugin",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "CodesPlazaSarTheme\\": "src/"
+    "name": "codesplaza/sw6-sar-theme",
+    "description": "Codesplaza Sar Theme",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "authors": [
+        {
+            "name": "Codesplaza SAR",
+            "email": "info@codesplaza.com",
+            "homepage": "https://codesplaza.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.4",
+        "shopware/storefront": "*"
+    },
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Codesplaza\\SarTheme\\": "src/"
+        }
+    },
+    "extra": {
+	    "shopware-plugin-class": "Codesplaza\\SarTheme\\CodesplazaSarTheme",
+        "copyright": "Codesplaza SAR",
+        "label": {
+            "de-DE": "CpSar SW6 Theme",
+            "en-GB": "CpSar SW6 Theme"
+        },
+        "description": {
+            "de-DE": "CodesplazaSarTheme' ist eine hervorragende UI-Oberfläche und ein erkennbar performantes Shopware 6-Theme, das interdisziplinär von zertifizierten Magento-Core-Entwicklern mit direktem Fokus auf eine kommende nächste Generation entwickelt wurde.",
+            "en-GB": "CodesplazaSarTheme' is an excelent UI interface  and able to be discernible performant Shopware 6 theme, developed interdisciplinary by certified Magento core developers with a straight focus on an upcoming next generation."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://codesplaza.com",
+            "en-GB": "https://codesplaza.com"
+        },
+        "supportLink": {
+            "de-DE": "https://codesplaza.com/cpsar-theme",
+            "en-GB": "https://codesplaza.com/cpsar-theme"
+        }
     }
-  },
-  "extra": {
-    "shopware-plugin-class": "CodesPlazaSarTheme\\CodesPlazaSarTheme",
-    "label": {
-      "de-DE": "Theme CodesPlazaSarTheme plugin",
-      "en-GB": "Theme CodesPlazaSarTheme plugin"
-    }
-  }
 }

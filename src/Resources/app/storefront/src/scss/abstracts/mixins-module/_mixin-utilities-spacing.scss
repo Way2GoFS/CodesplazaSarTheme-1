@@ -1,0 +1,224 @@
+//_CP_ -----------------------------------------------------------------------------
+//_CP_ This file contains all mixins that will help us to generate space classes.
+//_CP_ -----------------------------------------------------------------------------
+
+//_CP_/ Default Pixel Base Font Size
+$base-font-size: 16 !default;
+
+//_CP_/ Your custom attribute for which you wanted to generate space classes. By
+//_CP_/ default value is `both`. It could be `margin` or `padding`.
+//_CP_/ @example
+//_CP_/   $g-attribute = 'margin';
+//_CP_/   $g-attribute = 'padding';
+//_CP_/ @type String
+$g-attribute: 'both' !default;
+
+//_CP_/ Your custom sides for which you wanted to generate space classes. By default
+//_CP_/ `List` will generate `7` different version of classes on per spacing value.
+//_CP_/  `t` = `top`, `r` = `right`, `b` = `bottom` and `l` = `left`. You could
+//_CP_/ customize `List` according to your need.
+//_CP_/ @example
+//_CP_/   $g-sides = ('t', 'r', 'b', 'l');
+//_CP_/   $g-sides = ('t');
+//_CP_/ @author Ahmad Hussnain
+//_CP_/ @type List
+$g-sides: ('t', 'r', 'b', 'l', 'x', 'y', 'xy') !default;
+
+//_CP_/ Your custom space values for which you wanted to generate space classes.
+//_CP_/ You could customize `List` according to your need.
+//_CP_/ @type List
+$g-space-amount: (10, 20, 30, 40, 50, 60, 70, 80, 90, 100) !default;
+
+//_CP_/ This mixin only helps to generate space classes with `auto` value.
+//_CP_/
+//_CP_/ @param {String} $prefix - This parameter can takes a prefix value like `'u-s-m'`
+//_CP_/ or `'u-s-p'`.
+//_CP_/ @param {String} $attribute - This parameter can takes a value `'both'`,
+//_CP_/ `'margin'` or `'padding'`.
+//_CP_/ @param {List} $sides - This parameter can takes a list of your custom
+//_CP_/ sides i.e `('t','r','b','l','x','y','xy')`.
+@mixin auto-space-property-generator($prefix,$attribute,$sides) {
+  @each $Value in $sides {
+    @if ($Value == 't') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-top: auto;
+      }
+    } @else if ($Value == 'r') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-right: auto;
+      }
+    } @else if ($Value == 'b') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-bottom: auto;
+      }
+    } @else if ($Value == 'l') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-left: auto;
+      }
+    } @else if ($Value == 'x') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-left: auto;
+        #{$attribute}-right: auto;
+      }
+    } @else if ($Value == 'y') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}-top: auto;
+        #{$attribute}-bottom: auto;
+      }
+    } @else if ($Value == 'xy') {
+      .#{$prefix}-#{$Value}-auto {
+        #{$attribute}: auto;
+      }
+    }
+  }
+}
+//_CP_/ This mixin helps to generate only space classes according to your custom
+//_CP_/ sides and custom space amounts.
+//_CP_/
+//_CP_/ @param {String} $prefix - This parameter can takes a prefix value like `'u-s-m'`
+//_CP_/ or `'u-s-p'`.
+//_CP_/ @param {String} $attribute - This parameter can takes a value `'both'`,
+//_CP_/ `'margin'` or `'padding'`.
+//_CP_/ @param {List} $sides - This parameter can takes a list of your custom
+//_CP_/ sides i.e `('t','r','b','l','x','y','xy')`.
+//_CP_/ @param {Number | List} $space-amount - This parameter can takes a number or list
+//_CP_/ of your custom space amounts. If You don't specify `List` then it will
+//_CP_/ generate classes from `0 to 120` pixels that by default converted to rem unit.
+@mixin normal-space-property-generator($prefix,$attribute,$sides,$space-amount) {
+  @each $Value in $sides {
+    @if ($Value == 't') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-top: #{$space-amount};
+        } @else {
+          #{$attribute}-top: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'r') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-right: #{$space-amount};
+        } @else {
+          #{$attribute}-right: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'b') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-bottom: #{$space-amount};
+        } @else {
+          #{$attribute}-bottom: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'l') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-left: #{$space-amount};
+        } @else {
+          #{$attribute}-left: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'x') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-left: #{$space-amount};
+          #{$attribute}-right: #{$space-amount};
+        } @else {
+          #{$attribute}-left: ($space-amount / $base-font-size) * 1rem;
+          #{$attribute}-right: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'y') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}-top: #{$space-amount};
+          #{$attribute}-bottom: #{$space-amount};
+        } @else {
+          #{$attribute}-top: ($space-amount / $base-font-size) * 1rem;
+          #{$attribute}-bottom: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    } @else if ($Value == 'xy') {
+      .#{$prefix}-#{$Value}-#{$space-amount} {
+        @if ($space-amount == 0) {
+          #{$attribute}: #{$space-amount};
+        } @else {
+          #{$attribute}: ($space-amount / $base-font-size) * 1rem;
+        }
+      }
+    }
+  }
+}
+//_CP_/ This mixin decides what properties, sides and amounts are needed to generate
+//_CP_/ classes.
+//_CP_/
+//_CP_/ @param {String | List} $attribute - This parameter can takes a value
+//_CP_/ `'both'` or a list `('margin','padding')`.
+//_CP_/ @param {List} $sides - This parameter can takes a list of your custom
+//_CP_/ sides i.e `('t','r','b','l','x','y','xy')`.
+//_CP_/ @param {Number | List} $space-amount - This parameter can takes a number or
+//_CP_/ a list of your custom space amounts. If You don't specify `List` then it will
+//_CP_/ generate classes from `0 to 120` pixels.
+//_CP_/ @requires {mixin} auto-space-property-generator
+//_CP_/ @requires {mixin} normal-space-property-generator
+@mixin main-generator($attribute,$sides,$space-amount) {
+  //_CP_ If $attribute value is not equal to 'both' then it means user pass only single value.
+  @if ($attribute == 'margin') {
+    /* Margin with value `auto`. */
+    @include auto-space-property-generator('u-s-m', nth($attribute, 1), $sides);
+  }
+  @else {
+    /* Margin with value `auto`. */
+    @include auto-space-property-generator('u-s-m', nth($attribute, 1), $sides);
+  }
+  @if ($space-amount == null) {
+    @for $i from 0 through 120 {
+
+      @if ($attribute == 'margin') {
+        @include normal-space-property-generator('u-s-m', nth($attribute, 1), $sides, $i);
+      } @else if ($attribute == 'padding') {
+        @include normal-space-property-generator('u-s-p', nth($attribute, 1), $sides, $i);
+      } @else {
+        /* Margin with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-m', nth($attribute, 1), $sides, $i);
+        /* Padding with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-p', nth($attribute, 2), $sides, $i);
+      }
+    }
+  } @else {
+    @each $custom-space-amount in $space-amount {
+      @if ($attribute == 'margin') {
+        /* Margin with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-m', nth($attribute, 1), $sides, $custom-space-amount);
+      } @else if ($attribute == 'padding') {
+        /* Padding with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-p', nth($attribute, 1), $sides, $custom-space-amount);
+      } @else {
+        /* Margin with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-m', nth($attribute, 1), $sides, $custom-space-amount);
+        /* Padding with value `#{$i}`. */
+        @include normal-space-property-generator('u-s-p', nth($attribute, 2), $sides, $custom-space-amount);
+      }
+    }
+  }
+}
+//_CP_/ Main mixin that invokes all the mixins which help to generate
+//_CP_/ classes, i.e based on user requirements.
+//_CP_/
+//_CP_/ @param {String} $attribute - This parameter can takes a value `'both'`,
+//_CP_/ `'margin'` or `'padding'`.
+//_CP_/ @param {List} $sides - This parameter can takes a list of your custom
+//_CP_/ sides i.e `('t','r','b','l','x','y','xy')`.
+//_CP_/ @param {List} $space-amount [null] - This parameter can takes a list of your
+//_CP_/ custom space amounts. If You don't specify `List` or leave it as optional
+//_CP_/ parameter then it will generate classes from `0 to 120` pixels.
+//_CP_/ @requires {variable} $g-attribute
+//_CP_/ @requires {variable} $g-sides
+//_CP_/ @requires {variable} $g-space-amount
+//_CP_/ @requires {mixin} main-generator
+@mixin utility-margin-padding($attribute,$sides,$space-amount: null) {
+  @if ($attribute == 'both') {
+    $attribute: ('margin', 'padding');
+  }
+  @include main-generator($attribute, $sides, $space-amount);
+}
