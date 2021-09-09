@@ -1,5 +1,5 @@
 /*!
- * CpSarShopNav v1.0.0 Lightweight plugin
+ * CpShopNav v1.0.0 Lightweight plugin
  */
 
 

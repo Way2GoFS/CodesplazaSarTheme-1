@@ -1,7 +1,7 @@
 {
-  "name": "CodesplazaSarTheme by Codes Plaza",
-  "author": "Codes Plaza",
-  "views": ["@Storefront", "@Plugins", "@CodesplazaSarTheme"],
+  "name": "CodesplazaSarTheme by Codesplaza",
+  "author": "Codesplaza SAR",
+  "views": ["@Storefront", "@CodesplazaSarTheme", "@Plugins"],
   "style": [
     "app/storefront/src/scss/overrides.scss",
     "@Storefront",
@@ -9,7 +9,7 @@
   ],
   "script": [
     "@Storefront",
-    "app/storefront/dist/storefront/js/codesplaza-sar-theme.js"
+        "app/storefront/dist/storefront/js/codesplaza-sar-theme.js"
   ],
   "asset": ["@Storefront", "app/storefront/src/assets"],
   "config": {

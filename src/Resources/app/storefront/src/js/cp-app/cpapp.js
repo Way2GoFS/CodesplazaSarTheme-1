@@ -2,7 +2,7 @@
  * This is main script file that contains JS code.
  */
  
-(function ($) {
+ (function ($) {
     // Main Object
     var FUNCSAR = {};
 
@@ -38,43 +38,38 @@
 
 
     // Bind Scroll Up to all pages
-    FUNCSAR.initScrollUp = function() {
-        $.scrollUp({
-            scrollName: 'topScroll',
-            scrollText: '<i class="fas fa-long-arrow-alt-up"></i>',
-            easingType: 'linear',
-            scrollSpeed: 900,
-            animation: 'fade',
-            zIndex: 100
-        });
-    };
+    // FUNCSAR.initScrollUp = function() {
+    //     $.scrollUp({
+    //         scrollName: 'topScroll',
+    //         scrollText: '<i class="fas fa-long-arrow-alt-up"></i>',
+    //         easingType: 'linear',
+    //         scrollSpeed: 900,
+    //         animation: 'fade',
+    //         zIndex: 100
+    //     });
+    // };
 
-    FUNCSAR.initScrollSpy = function() {
-        var $bodyScrollSpy = $('#js-scrollspy-trigger');
-        if ($bodyScrollSpy.length) {
-            $bodyScrollSpy.scrollspy({
-                target: '#init-scrollspy'
-            });
-        }
-    };
+    // FUNCSAR.initScrollSpy = function() {
+    //     var $bodyScrollSpy = $('#js-scrollspy-trigger');
+    //     if ($bodyScrollSpy.length) {
+    //         $bodyScrollSpy.scrollspy({
+    //             target: '#init-scrollspy'
+    //         });
+    //     }
+    // };
 
-    FUNCSAR.onClickScroll = function() {
-        $collectionaClickScroll.on('click', function (e) {
-            // prevent default behavior means page doesn't move or show up id's on browser status-bar
-            e.preventDefault();
-            // Get Target
-            var target = $(this).data('click-scroll');
-            // check if anchor has hash
-            if ($(target).length) {
-                $('html').animate({
-                    // .offset() is jQuery function and it returns jQuery object which
-                    // has top, left, bottom property and returns total distance from the html container
-                    scrollTop: $(target).offset().top
-                }, 1000, function () {
-                });
-            }
-        });
-    };
+    // FUNCSAR.onClickScroll = function() {
+    //     $collectionaClickScroll.on('click', function (e) {
+    //         e.preventDefault();
+    //         var target = $(this).data('click-scroll');
+    //         if ($(target).length) {
+    //             $('html').animate({
+    //                 scrollTop: $(target).offset().top
+    //             }, 1000, function () {
+    //             });
+    //         }
+    //     });
+    // };
 
     // Bind Tooltip to all pages
     FUNCSAR.initTooltip = function() {
@@ -658,12 +653,12 @@
     });
 
 
-        FUNCSAR.initScrollUp();
+        //FUNCSAR.initScrollUp();
         FUNCSAR.initTooltip();
         FUNCSAR.initModal();
         FUNCSAR.defaultAddressCheckbox();
-        FUNCSAR.initScrollSpy();
-        FUNCSAR.onClickScroll();
+        //FUNCSAR.initScrollSpy();
+        // FUNCSAR.onClickScroll();
         FUNCSAR.CpSarShopNavigation();
         FUNCSAR.primarySlider();
         FUNCSAR.productSlider();
